@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reformedalloy.com/dynamictrees/families.schema.json",
+  "description": "DynamicTrees JSON file to define a tree family",
+  "type": "object",
+  "properties": {
+    "common_species": {
+      "type": "string",
+      "description": "The default species for this family. It must also be defined in the species/ folder"
+    },
+    "common_leaves": {
+      "type": "string",
+      "description": "The default leaves properties for this family. They must be defined in the leaves_properties/ folder"
+    },
+    "primitive_log": {
+      "type": "string",
+      "description": "The block that the logs are made of. The tree should drop these as items when felled."
+    },
+    "primitive_stripped_log": {
+      "type": "string",
+      "description": "The stripped version of the primitive log. (CAN BE OPTIONAL if disabled by generate_stripped_branch)"
+    },
+    "type": {
+      "type": "string",
+      "description": "Allows for custom behavior beyond these properties. The options are {nether_fungus}. More can be added by addons.",
+      "default": "none"
+    },
+    "max_branch_radius": {
+      "type": "integer",
+      "description": "The maximum radius the block can be. 8 is a full block.",
+      "default": 8,
+      "minimum": 1,
+      "maximum": 24
+    },
+    "stick": {
+      "type": "string",
+      "description": "The stick item that the tree drops when with the logs.",
+      "default": "minecraft:stick"
+    },
+    "generate_surface_root": {
+      "type": "boolean",
+      "description": "If set to true, surface root blocks will be generated.",
+      "default": false
+    },
+    "generate_stripped_branch": {
+      "type": "boolean",
+      "description": "Whether or not the tree can be stripped with an axe.",
+      "default": true
+    },
+    "branch_is_ladder": {
+      "type": "boolean",
+      "description": "If true thin branches can be climbed by the player.",
+      "default": true
+    },
+    "max_signal_depth": {
+      "type": "integer",
+      "description": "The maximum number of blocks the tree signal will travel. This limits the size of the tree.",
+      "default": 32
+    },
+    "primary_thickness": {
+      "type": "integer",
+      "description": "The radius of the branches at the tips, next to the leaves.",
+      "default": 1
+    },
+    "secondary_thickness": {
+      "type": "integer",
+      "description": "The radius of the branches immediately after the ones at the tips.",
+      "default": 2
+    },
+    "conifer_variants": {
+      "type": "boolean",
+      "description": "Set to true if any of its species has a conifer_topper GenFeature.",
+      "default": false
+    },
+    "loot_volume_multiplier": {
+      "type": "float",
+      "description": "Multiplies the volume used to calculate the amount of logs and sticks dropped.",
+      "default": 1.0
+    }
+  },
+  "required": [
+    "common_species",
+    "common_leaves",
+    "primitive_log",
+    "primitive_stripped_log"
+  ]
+}
