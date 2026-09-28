@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reformedalloy.com/dynamictrees/leaves_properties.schema.json",
+  "description": "DynamicTrees JSON file to define a leaf type and its properties",
+  "type": "object",
+  "properties": {
+    "primitive_leaves": {
+      "type": "string",
+      "description": "The block the leaves are made of. These will drop when sheared."
+    },
+    "type": {
+      "type": "string",
+      "description": "Allows for custom behavior beyond these properties. More can be added by addons.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["none", "solid", "wart", "palm", "scruffy"]
+        },
+        { "type": "string" }
+      ],
+      "default": "none"
+    },
+    "cell_kit": {
+      "description": "The shape logic of the leaves.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "deciduous",
+            "conifer",
+            "acacia",
+            "dark_oak",
+            "bare",
+            "palm",
+            "nether_fungus"
+          ]
+        },
+        { "type": "string" }
+      ],
+      "default": "deciduous"
+    },
+    "smother": {
+      "type": "integer",
+      "description": "The maximum count of leaves a leaf block can have on top before dying",
+      "default": 4
+    },
+    "light_requirement": {
+      "type": "integer",
+      "description": "The minimum light value for the leaves not to die",
+      "default": 12
+    },
+    "fire_spread": {
+      "type": "number",
+      "description": "The fire spread value of the block"
+    },
+    "flammability": {
+      "type": "number",
+      "description": "The flammability value of the block"
+    },
+    "connect_any_radius": {
+      "type": "boolean",
+      "description": "If true, leaves will connect to any radius instead of just 1",
+      "default": false
+    },
+    "ageing_configuration": {
+      "description": "When leaves are allowed to tick and grow/decay. Options are {always, worldgen_only, growth_only, never}",
+      "type": "string",
+      "enum": ["always", "worldgen_only", "growth_only", "never"]
+    },
+    "can_grow_on_ground": {
+      "type": "boolean",
+      "description": "If false leave will leave a gap of air with the ground.",
+      "default": false
+    },
+    "color": {
+      "description": "The color of the leaves. It can be a Hex value, Int value or {@biome, @birch, @spruce}. More can be added by addons.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["@biome", "@birch", "@spruce"]
+        },
+        { "type": "string" },
+        { "type": "integer" }
+      ],
+      "default": "@biome"
+    },
+    "family": {
+      "type": "string",
+      "description": "The family of trees the leaves can connect to. It must first be defined in the Families folder.",
+      "default": "any"
+    },
+    "generate_block": {
+      "type": "boolean",
+      "description": "Whether the leaves need a block to be registered",
+      "default": true
+    },
+    "block_registry_name": {
+      "type": "string",
+      "description": "The registry name of the block (By default it uses the name of the file + \"_leaves\")"
+    },
+    "scruffy_leaf_chance": {
+      "type": "number",
+      "description": "The percentage of leaf blocks that will be skipped",
+      "default": 0.66
+    },
+    "scruffy_max_hydro": {
+      "type": "number",
+      "description": "The maximum distance value that skipped leaves can have",
+      "default": 1
+    },
+    "seed_drop_chances": {
+      "type": "array",
+      "description": "An array of 4 chances to drop leaves when harvested. Each value represents a level of fortune enchantment with 0 being no fortune.",
+      "items": { "type": "number" },
+      "default": [0.015625, 0.03125, 0.046875, 0.0625]
+    },
+    "requires_shears": {
+      "type": "boolean",
+      "description": "If leaves are required to obtain the full block.",
+      "default": true
+    }
+  },
+  "required": ["primitive_leaves"]
+}

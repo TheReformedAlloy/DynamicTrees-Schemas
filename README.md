@@ -12,7 +12,7 @@ This repository is only currently intended to store the schema files themselves.
 | -------- | ------- | ------- | ------- | ------- | ------- | ------- |
 | families | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | species  | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
-| leaves   | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
+| leaves   | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | soil     | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
 | fruits   | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
 | pods     | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
