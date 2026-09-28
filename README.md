@@ -1,16 +1,13 @@
 # DynamicTrees JSON Schemas
 
-==========
 
 ## Overview
 
-==========
 
 This repository is made to facilitate easier creation and subsequent validation of DynamicTrees Tree Pack files via the use of the contained schema files.
 
 ## Features
 
-==========
 
 This repository is only currently intended to store the schema files themselves. Below is a list of files that have been completed (o), and the files which remain to be completed (x):
 
