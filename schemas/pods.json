@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reformedalloy.com/dynamictrees/pods.schema.json",
+  "description": "DynamicTrees JSON file to define a pod and its properties",
+  "type": "object",
+  "properties": {},
+  "required": []
+}
