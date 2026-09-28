@@ -11,7 +11,7 @@ This repository is only currently intended to store the schema files themselves.
 | Schema   | v1.16.5 | v1.18.2 | v1.19.2 | v1.20.1 | v1.21.1 | v26.1.2 |
 | -------- | ------- | ------- | ------- | ------- | ------- | ------- |
 | families | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
-| species  | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
+| species  | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | leaves   | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | soil     | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
 | fruits   | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |

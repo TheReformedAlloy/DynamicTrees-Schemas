@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reformedalloy.com/dynamictrees/species.schema.json",
+  "description": "DynamicTrees JSON file to define a tree species",
+  "type": "object",
+  "properties": {
+    "family": {
+      "type": "string",
+      "description": "The family of trees this species belongs to. It will define the trunk block and other global behaviors. It must first be defined in the Families folder."
+    },
+    "type": {
+      "description": "Allows for custom behavior beyond these properties. More can be added by addons.",
+      "type": {
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": ["none", "nether_fungus", "swamp_oak", "palm"]
+          },
+          { "type": "string" }
+        ]
+      },
+      "default": "none"
+    },
+    "always_show_on_waila": {
+      "type": "boolean",
+      "description": "On true, will always show species under the block indicator (when waila, hwyla or similar is installed). On false, it will never show up. On null it will only show up when the species is not the family's common species.",
+      "default": null
+    },
+    "transformable": {
+      "type": "string",
+      "description": "Whether transformation potions can be used on this species",
+      "default": true
+    },
+    "leaves_properties": {
+      "type": "string",
+      "description": "What leaves properties will be used. They must first be defined in the Leaves Properties folder. (By default it will be the family's common leaves)"
+    },
+    "mega_species": {
+      "type": "string",
+      "description": "The species' mega variant, if it has one.",
+      "default": "none"
+    },
+    "can_bone_meal_tree": {
+      "type": "string",
+      "description": "Whether bonemeal can be used to grow the tree.",
+      "default": true
+    },
+    "acceptable_soils": {
+      "type": "array",
+      "description": "A list of the soil categories this tree can be planted on.",
+      "items": { "type": "string" },
+      "default": ["dirt_like"]
+    },
+    "features": {
+      "type": "array",
+      "description": "An array of the generation features of this species.",
+      "items": { "type": "object" }
+    },
+    "does_rot": {
+      "type": "boolean",
+      "description": "Whether the tree branches decay when the conditions aren't feasible.",
+      "default": true
+    },
+    "tapering": {
+      "type": "number",
+      "description": "How much the tree thickens per block from the branches to the base.",
+      "default": 0.3
+    },
+    "up_probability": {
+      "type": "number",
+      "description": "When calculating the probability maps, the chance for a branch to prefer to go upwards.",
+      "default": 2
+    },
+    "signal_energy": {
+      "type": "number",
+      "description": "The energy that each growth signal starts with. It defines the max size of the tree from trunk to tips.",
+      "default": 16.0
+    },
+    "soil_longevity": {
+      "type": "integer",
+      "description": "The number of pulses in average that it takes to lower the soil's fertility.",
+      "default": 8
+    },
+    "growth_rate": {
+      "type": "number",
+      "description": "A multiplier of how fast the tree grows.",
+      "default": 1.0
+    },
+    "lowest_branch_height": {
+      "type": "integer",
+      "description": "The lowest block height branches will start growing away from the trunk.",
+      "default": 3
+    },
+    "max_branch_radius": {
+      "type": "integer",
+      "description": "The maximum radius of any branch of this species. Must be equal or lower to the Family's max radius.",
+      "default": 8
+    },
+    "growth_logic_kit": {
+      "description": "The custom logic kit used to shape the tree as it grows. More can be added by addons.",
+      "type": {
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": ["dark_oak", "conifer", "jungle", "nether_fungus", "palm"]
+          },
+          { "type": "string" }
+        ]
+      },
+      "default": null
+    },
+    "acceptable_growth_blocks": {
+      "type": "array",
+      "description": "An array of blocks that the tree can only grow on. When left empty it will not have this requirement.",
+      "items": { "type": "string" },
+      "default": "none"
+    },
+    "seed": {
+      "type": "string",
+      "description": "The seed item, if a custom one is being used. (By default its generated on its own)"
+    },
+    "generate_seed": {
+      "type": "boolean",
+      "description": "Whether a seed should be created for this species.",
+      "default": true
+    },
+    "generate_sapling": {
+      "type": "boolean",
+      "description": "Whether a sapling block should be created for this species.",
+      "default": true
+    },
+    "sapling_name": {
+      "type": "string",
+      "description": "The name of the generated sapling block. (By default its [species]_sapling)"
+    },
+    "seed_name": {
+      "type": "string",
+      "description": "The name of the generated sapling block. (By default its [species]_seed)"
+    },
+    "sapling_sound": {
+      "type": "string",
+      "description": "The sound type of the generated sapling block.",
+      "default": "GRASS"
+    },
+    "sapling_shape": {
+      "description": "The hitbox and collision box for the genreated sapling block. More can be added by addons",
+      "type": {
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "empty",
+              "block",
+              "sapling",
+              "slim_sapling",
+              "flat_mushroom",
+              "round_mushroom",
+              "round_mushroom_rim"
+            ]
+          },
+          { "type": "string" }
+        ]
+      },
+      "default": "sapling"
+    },
+    "seed_composter_chance": {
+      "type": "number",
+      "description": "The chance for the composter level to raise when the seed is composted.",
+      "default": 0.3
+    },
+    "sapling_grows_naturally": {
+      "type": "boolean",
+      "description": "Whether the sapling can grow on its own without using bonemeal.",
+      "default": true
+    },
+    "primitive_sapling": {
+      "type": "object",
+      "description": "A sapling recipe to obtain the seed from the sapling or vice-versa."
+    },
+    "primitive_saplings": {
+      "type": "array",
+      "description": "An array of sapling recipes to obtain the seed from the sapling or vice-versa.",
+      "items": { "type": "object" }
+    },
+    "fruits": {
+      "type": "array",
+      "description": "A list of all the fruits assigned to this species. The fruit feature must still be added for fruit to generate.",
+      "items": { "type": "object" },
+      "default": null
+    },
+    "pods": {
+      "type": "array",
+      "description": "A list of all the pods assigned to this species. The pod feature must still be added for pods to generate.",
+      "items": { "type": "object" },
+      "default": null
+    },
+    "world_gen_leaf_map_height": {
+      "type": "integer",
+      "description": "The maximum height for which leaves will be placed during world gen. Must be increased for huge trees.",
+      "default": 32
+    },
+    "world_gen_acceptable_soils": {
+      "type": "array",
+      "description": "A list of soil categories that will be checked for world gen instead of \"acceptable_soils\".",
+      "items": { "type": "string" },
+      "default": null
+    },
+    "common_override": {
+      "type": "array",
+      "description": "A list of biomes for which this species will override the family's common species configuration. All trees planted in this biome will automatically become this species instead.",
+      "items": { "type": "string" },
+      "default": null
+    }
+  },
+  "required": ["family"]
+}
