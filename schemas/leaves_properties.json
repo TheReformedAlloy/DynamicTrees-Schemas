@@ -63,7 +63,7 @@
       "default": false
     },
     "ageing_configuration": {
-      "description": "When leaves are allowed to tick and grow/decay. Options are {always, worldgen_only, growth_only, never}",
+      "description": "When leaves are allowed to tick and grow/decay.",
       "type": "string",
       "enum": ["always", "worldgen_only", "growth_only", "never"]
     },

@@ -21,8 +21,13 @@
       "description": "The stripped version of the primitive log. (CAN BE OPTIONAL if disabled by generate_stripped_branch)"
     },
     "type": {
-      "type": "string",
-      "description": "Allows for custom behavior beyond these properties. The options are {nether_fungus}. More can be added by addons.",
+      "description": "Allows for custom behavior beyond these properties. More can be added by addons.",
+      "type": {
+        "oneOf": [
+          { "type": "string", "enum": ["none", "nether_fungus"] },
+          { "type": "string" }
+        ]
+      },
       "default": "none"
     },
     "max_branch_radius": {
