@@ -3,6 +3,88 @@
   "$id": "https://reformedalloy.com/dynamictrees/fruits.schema.json",
   "description": "DynamicTrees JSON file to define a fruit and its properties",
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "item_stack": {
+      "type": "string",
+      "description": "The item the fruit/pod represents. It will select this item when middle-clicked.\"type\": Allows for custom behavior beyond these properties. There are no options by default, but more can be added by addons."
+    },
+    "max_age": {
+      "type": "integer",
+      "description": "The maximum age value for the block.",
+      "default": 3
+    },
+    "block_shapes": {
+      "type": "array",
+      "description": "A list of the shapes for the hitbox of each stage of growth. For more info go to this section.",
+      "items": {
+        "function": "fruit",
+        "parameters": { "$ref": "#/$defs/fruit_shape_parameters" }
+      }
+    },
+    "can_bone_meal": {
+      "type": "boolean",
+      "description": "Whether the fruit or pod will grow when bone-mealed.",
+      "default": false
+    },
+    "growth_chance": {
+      "type": "number",
+      "description": "Chance each tick for the fruit to grow to the next stage.",
+      "default": 0.2
+    },
+    "season_offset": {
+      "type": "number",
+      "description": "[When a season mod is installed] The offset from summer that the fruit is on season.",
+      "minimum": 0.0,
+      "maximum": 4.0,
+      "default": 0.0
+    },
+    "flower_hold_period_length": {
+      "type": "number",
+      "description": "[When a season mod is installed] The length of time in seasons that the fruit/pod won't grow past the flower stage (stage 0) right before the period when its on season to harvest.",
+      "minimum": 0.0,
+      "maximum": 3.0,
+      "default": 0.5
+    },
+    "min_production_factor": {
+      "type": "number",
+      "description": "[When a season mod is installed] The minimum production factor value that the fruit can survive at. If the factor dips below this threshold the fruit/pod will wither away and disappear. This happens on the opposite season of its harvest season. A lower value means it lasts longer.",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.3
+    },
+    "mature_action": {
+      "type": "string",
+      "description": "A custom action that the block can perform when maturing. This requires code as none are defined by default.",
+      "default": "none"
+    }
+  },
+  "required": ["item_stack"],
+  "$defs": {
+    "fruit_shape_parameters": {
+      "type": "object",
+      "properties": {
+        "function": {
+          "enum": ["pod"]
+        },
+        "fraction": {
+          "type": "integer",
+          "description": "How many units per block are used to define the next parameters",
+          "default": 20
+        },
+        "radius": {
+          "type": "integer",
+          "description": "The radius of the fruit box"
+        },
+        "height": {
+          "type": "integer",
+          "description": "The height of the fruit box"
+        },
+        "stem_length": {
+          "type": "integer",
+          "description": "The distance from the bottom of the block on top to the top of the box"
+        }
+      },
+      "required": ["radius", "height", "stem_length"]
+    }
+  }
 }
