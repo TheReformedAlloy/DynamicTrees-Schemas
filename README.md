@@ -13,6 +13,6 @@ This repository is only currently intended to store the schema files themselves.
 | families | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | species  | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | leaves   | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
-| soil     | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
+| soil     | ❌      | ❌      | ❌      | ❌      | ✅      | ❌      |
 | fruits   | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |
 | pods     | ❌      | ❌      | ❌      | ❌      | ❌      | ❌      |

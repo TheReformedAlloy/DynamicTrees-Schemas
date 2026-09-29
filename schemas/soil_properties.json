@@ -3,6 +3,43 @@
   "$id": "https://reformedalloy.com/dynamictrees/soil_properties.schema.json",
   "description": "DynamicTrees JSON file to define a soil and its properties",
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "primitive_soil": {
+      "type": "string",
+      "description": "The block the soil is made of. It will turn back into it when the tree is removed"
+    },
+    "acceptable_soils": {
+      "type": "array",
+      "description": "The list of soil categories that this rooty soil belongs to. (not block tags)",
+      "items": { "type": "string" }
+    },
+    "type": {
+      "type": "string",
+      "description": "Allows for custom behavior beyond these properties. The options are {water, spreadable}. More can be added by addons",
+      "examples": ["none", "water", "spreadable"],
+      "default": "none"
+    },
+    "substitute_soil": {
+      "type": "string",
+      "description": "Another soil properties, when a tree is planted on this primitive soil the block will turn into its substitute soil instead, and this one will not have its own rooty block. Example: farmland turns to rooty dirt when a tree is planted on it, so there is no rooty farmland block."
+    },
+    "block_registry_name": {
+      "type": "string",
+      "description": "The registry name of the block (By default it uses \"rooty_\" + the name of the file)"
+    },
+    "required_light": {
+      "type": "integer",
+      "description": "Minimum light for the soil to to be spread on"
+    },
+    "spread_item": {
+      "type": "string",
+      "description": "Item used to spread soil"
+    },
+    "spreadable_soils": {
+      "type": "array",
+      "description": "The acceptable blocks the soil can spread from",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["primitive_soil", "acceptable_soils"]
 }
