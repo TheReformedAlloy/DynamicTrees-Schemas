@@ -10,15 +10,8 @@
     },
     "type": {
       "description": "Allows for custom behavior beyond these properties. More can be added by addons.",
-      "type": {
-        "oneOf": [
-          {
-            "type": "string",
-            "enum": ["none", "nether_fungus", "swamp_oak", "palm"]
-          },
-          { "type": "string" }
-        ]
-      },
+      "type": "string",
+      "examples": ["none", "nether_fungus", "swamp_oak", "palm"],
       "default": "none"
     },
     "always_show_on_waila": {
@@ -98,15 +91,8 @@
     },
     "growth_logic_kit": {
       "description": "The custom logic kit used to shape the tree as it grows. More can be added by addons.",
-      "type": {
-        "oneOf": [
-          {
-            "type": "string",
-            "enum": ["dark_oak", "conifer", "jungle", "nether_fungus", "palm"]
-          },
-          { "type": "string" }
-        ]
-      },
+      "type": "string",
+      "examples": ["dark_oak", "conifer", "jungle", "nether_fungus", "palm"],
       "default": null
     },
     "acceptable_growth_blocks": {
@@ -144,23 +130,16 @@
     },
     "sapling_shape": {
       "description": "The hitbox and collision box for the genreated sapling block. More can be added by addons",
-      "type": {
-        "oneOf": [
-          {
-            "type": "string",
-            "enum": [
-              "empty",
-              "block",
-              "sapling",
-              "slim_sapling",
-              "flat_mushroom",
-              "round_mushroom",
-              "round_mushroom_rim"
-            ]
-          },
-          { "type": "string" }
-        ]
-      },
+      "type": "string",
+      "examples": [
+        "empty",
+        "block",
+        "sapling",
+        "slim_sapling",
+        "flat_mushroom",
+        "round_mushroom",
+        "round_mushroom_rim"
+      ],
       "default": "sapling"
     },
     "seed_composter_chance": {

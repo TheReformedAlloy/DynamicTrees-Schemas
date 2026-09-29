@@ -11,31 +11,20 @@
     "type": {
       "type": "string",
       "description": "Allows for custom behavior beyond these properties. More can be added by addons.",
-      "oneOf": [
-        {
-          "type": "string",
-          "enum": ["none", "solid", "wart", "palm", "scruffy"]
-        },
-        { "type": "string" }
-      ],
+      "examples": ["none", "solid", "wart", "palm", "scruffy"],
       "default": "none"
     },
     "cell_kit": {
-      "description": "The shape logic of the leaves.",
-      "oneOf": [
-        {
-          "type": "string",
-          "enum": [
-            "deciduous",
-            "conifer",
-            "acacia",
-            "dark_oak",
-            "bare",
-            "palm",
-            "nether_fungus"
-          ]
-        },
-        { "type": "string" }
+      "type": "string",
+      "description": "The shape logic of the leaves. More can be added by addons.",
+      "examples": [
+        "deciduous",
+        "conifer",
+        "acacia",
+        "dark_oak",
+        "bare",
+        "palm",
+        "nether_fungus"
       ],
       "default": "deciduous"
     },
@@ -77,9 +66,8 @@
       "oneOf": [
         {
           "type": "string",
-          "enum": ["@biome", "@birch", "@spruce"]
+          "examples": ["@biome", "@birch", "@spruce"]
         },
-        { "type": "string" },
         { "type": "integer" }
       ],
       "default": "@biome"
