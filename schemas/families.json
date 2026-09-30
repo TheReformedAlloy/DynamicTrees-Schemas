@@ -12,6 +12,13 @@
       "type": "string",
       "description": "The default leaves properties for this family. They must be defined in the leaves_properties/ folder"
     },
+    "max_branch_radius": {
+      "type": "integer",
+      "description": "The maximum radius the block can be. 8 is a full block.",
+      "default": 8,
+      "minimum": 1,
+      "maximum": 24
+    },
     "primitive_log": {
       "type": "string",
       "description": "The block that the logs are made of. The tree should drop these as items when felled."
@@ -20,18 +27,28 @@
       "type": "string",
       "description": "The stripped version of the primitive log. (CAN BE OPTIONAL if disabled by generate_stripped_branch)"
     },
+    "only_if_loaded": {
+      "type": ["string", "array"],
+      "description": "A list of mod ids which much be present for this tree family to be loaded.",
+      "items": { "type": "string" }
+    },
+    "texture_overrides": {
+      "$ref": "#/$defs/texture_overrides",
+      "description": "Used to manually specify the texture to use for the model specified by the key."
+    },
+    "model_overrides": {
+      "$ref": "#/$defs/model_overrides",
+      "description": "Used to manually specify the model for a particular blockstate"
+    },
+    "lang_overrides": {
+      "$ref": "#/$defs/lang_overrides",
+      "description": "Used to manually specify what the family should be called based on the language used."
+    },
     "type": {
       "description": "Allows for custom behavior beyond these properties. More can be added by addons.",
       "type": "string",
-      "examples": ["none", "nether_fungus"],
+      "examples": ["none", "nether_fungus", "underground_roots"],
       "default": "none"
-    },
-    "max_branch_radius": {
-      "type": "integer",
-      "description": "The maximum radius the block can be. 8 is a full block.",
-      "default": 8,
-      "minimum": 1,
-      "maximum": 24
     },
     "stick": {
       "type": "string",
@@ -77,6 +94,46 @@
       "type": "number",
       "description": "Multiplies the volume used to calculate the amount of logs and sticks dropped.",
       "default": 1.0
+    },
+    "min_radius_for_stripping": {
+      "type": "integer",
+      "description": "The minimum radius that the branch needs to have to be stripped by an axe",
+      "default": null
+    },
+    "reduce_radius_when_stripping": {
+      "type": "boolean",
+      "description": "Whether the radius of the branch is reduced by 1 when stripped.",
+      "default": true
+    }
+  },
+  "if": {
+    "properties": {
+      "type": { "const": "underground_roots" }
+    }
+  },
+  "then": {
+    "properties": {
+      "primitive_root": {
+        "type": "string",
+        "description": "The block that the roots are made of."
+      },
+      "primitive_filled_root": {
+        "type": "string",
+        "description": "The block that the filled roots are made of."
+      },
+      "primitive_covered_root": {
+        "type": "string",
+        "description": "The block that the covered roots are made of."
+      },
+      "default_soil": {
+        "type": "string",
+        "description": "Default DynamicTrees soil properties that roots can grow through."
+      },
+      "root_system_acceptable_soils": {
+        "type": "array",
+        "description": "Acceptable blocks through which roots can grow.",
+        "items": { "type": "string" }
+      }
     }
   },
   "required": [
@@ -84,5 +141,29 @@
     "common_leaves",
     "primitive_log",
     "primitive_stripped_log"
-  ]
+  ],
+  "$defs": {
+    "lang_overrides": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "model_overrides": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "texture_overrides": {
+      "type": "object",
+      "properties": {
+        "branch": { "type": "string" },
+        "branch_top": { "type": "string" },
+        "stripped_branch": { "type": "string" },
+        "stripped_branch_top": { "type": "string" },
+        "roots_side": { "type": "string" },
+        "roots_top": { "type": "string" }
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
 }
