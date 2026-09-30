@@ -74,7 +74,7 @@
       "default": false
     },
     "loot_volume_multiplier": {
-      "type": "float",
+      "type": "number",
       "description": "Multiplies the volume used to calculate the amount of logs and sticks dropped.",
       "default": 1.0
     }
